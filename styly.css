@@ -27,6 +27,7 @@ html {
         --spacial-color: #906272;
         --background-color: #414141;
         --gray-text: #525252;
+        scroll-behavior: smooth;
 }
 h1 {
         font-size: var(--header1);
@@ -176,10 +177,6 @@ h1 {
                 transform: rotateZ(0deg);
         }
 }
-.burger,
-.menu-check {
-        display: none;
-}
 /*TODO: About Section*/
 .about-section {
         min-height: 100vh;
@@ -290,6 +287,7 @@ h1 {
         border: none;
         color: white;
         font-weight: bold;
+        cursor: pointer;
 }
 .img-contact {
         flex: 1 1 40rem;
@@ -332,9 +330,8 @@ footer .footer {
         }
         /* TODO: BURGER THING */
         .main-head .burger {
-                position: relative;
-                display: block;
                 z-index: 2;
+                cursor: pointer;
         }
         .main-head .burger span {
                 padding: 0.2rem 2rem;
@@ -361,32 +358,20 @@ footer .footer {
                 font-size: var(--header3);
                 text-decoration: underline;
         }
-        .menu-check {
-                display: block;
-                position: absolute;
-                top: 50%;
-                right: 5%;
-                transform: translate(5%, -50%);
-                width: 5rem;
-                height: 5rem;
-                cursor: pointer;
-                opacity: 0;
-                z-index: 3;
-        }
-        .menu-check:checked + .nav-links {
+
+        .nav-open {
                 transform: translateX(-100%);
         }
-        .menu-check:checked ~ .burger span {
+        .toggle .line1 {
+                transform: rotate(45deg) translateY(300%);
                 background-color: white;
         }
-        .menu-check:checked ~ .burger span:nth-child(1) {
-                transform: rotate(45deg) translateY(300%);
-        }
-        .menu-check:checked ~ .burger span:nth-child(2) {
+        .toggle .line2 {
                 opacity: 0;
         }
-        .menu-check:checked ~ .burger span:nth-child(3) {
+        .toggle .line3 {
                 transform: rotateZ(-45deg) translateY(-300%);
+                background-color: white;
         }
         .about-description div {
                 padding: 2rem 3rem;
@@ -412,6 +397,11 @@ footer .footer {
         .footer ul {
                 order: 1;
                 padding: 1rem 1rem 0rem 1rem;
+        }
+}
+@media screen and (max-width: 842px) and (orientation: landscape) {
+        .gmail-contact button {
+                margin-bottom: 10rem;
         }
 }
 @media screen and (min-width: 1700px) {
